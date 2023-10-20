@@ -11,11 +11,11 @@ img:hover{
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
-.productabel{
+.productLabel{
     position: absolute;
     top: 0;
     padding: 10px;
-    background: rgba(211,211,211, 0.4);
+    background: rgba(48, 48, 48, 0.4);
     font-family: Arial, Helvetica, sans-serif;
     font-variant: small-caps;
     width: 180px;
@@ -56,39 +56,31 @@ input[type=button]{
     align-self: center;
     border-radius: 50px;
 }
-#grid{
-    display: grid;
-    grid-template-areas: "superior superior superior"
-    "menú menú tiquet"
-    "inferior inferior inferior";
-}
+
 #Superior{
     grid-area: superior;
 }
-#productes{
-    grid-area: menú;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+
 #tiquet{
     grid-area: tiquet;
-}
-#inferior{
-    grid-area: inferior;
+    margin-left: 5%;
 }
 
-.hidden{
-    display: none;
-}
+
 body{
     background-color: rgb(46, 45, 45);
     color: white;
 }
 
-#app{
+
+#productes{
+    grid-area: productes;
     display: grid;
-    grid-template-areas: "superior superior"
-    "menú menú";
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
-
+#MenuCompra{
+    display: grid;
+    grid-template-areas: "botons botons"
+    "productes tiquet";
+}
