@@ -45,8 +45,13 @@ createApp({
     },
     acabarCompra(){
       this.comprat.forEach(compra => {
+        let objetoExistente = this.productes.find(item =>item.id === compra.id);
+        objetoExistente.stock-=compra.Quantitat;
+        this.actiu=1;
         //this.productes[].stock-=compra.Quantitat*compra.preu;
       });
+      this.comprat=[];
+      this.totalCompra=0;
       
     }
 
@@ -54,6 +59,10 @@ createApp({
   created() {
     getProductes().then(data => {
       this.productes = data
+      if(localStorage.getItem("name")){
+        document.getElementById("name").innerHTML=localStorage.getItem("name");
+        document.getElementById("mail").innerHTML=localStorage.getItem("mail");
+      }
     }
     )
   }
