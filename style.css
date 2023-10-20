@@ -1,0 +1,80 @@
+img{
+    display: block;
+    border-radius: 2px;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.36);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.36);
+    
+}
+img:hover{
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+label{
+    display: none;
+    text-align:center;
+}
+.item{
+    display: flex;
+    margin-left: 15%;
+    height: 200px;
+    width: 200px;
+}
+.item:hover > label {
+    display: flex;
+    position: absolute;
+    top: 0;
+    padding: 10px;
+    background: rgba(211,211,211, 0.4);
+    font-family: Arial, Helvetica, sans-serif;
+    font-variant: small-caps;
+    width: 180px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.item{
+     position: relative;
+     display: block;
+     margin-bottom: 5%;
+}
+.butons{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: lightgray;
+}
+input[type=text]{
+    align-self: center;
+    width: 30px;
+    opacity: 0.5;
+}
+input[type=button]{
+    align-self: center;
+    border-radius: 50px;
+}
+#grid{
+    display: grid;
+    grid-template-areas: "superior superior superior"
+    "menú menú tiquet"
+    "inferior inferior inferior";
+}
+#Superior{
+    grid-area: superior;
+}
+#productes{
+    grid-area: menú;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+#tiquet{
+    grid-area: tiquet;
+}
+#inferior{
+    grid-area: inferior;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Botiga pelicules</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <h1 id="Superior">Superior</h1>
+
+
+
+        <div id="Portada" v-if="actiu == 1"><button @click="updateboto(2)">Començar</button></div>
+        <div id="MenuCuompra" v-if="actiu == 2"><button v-if="totalCompra>0" @click="updateboto(3)">Finalitzar compra</button> <button
+                @click="updateboto(1)">Tornar a portada</button>
+            <div id="productes">
+                <div v-for="(producte, index) in productes" id="{{producte.id}}" class="item">
+
+
+                    <label for="{{producte.id}}">{{producte.Title}}</label>
+                    <div class="butons">
+                        <input type="button" value="Afegir a la compra" @click="afegirCompra(index,1 )" >
+                        <div>{{producte.preu}}€</div>
+                    </div>
+                    <img src="https://picsum.photos/200" alt="">
+                    
+
+                </div>
+            </div>
+            <div>
+                <h1>Tiquet</h1>
+                <ul>
+                    <li v-for="(item, index) in comprat">{{item.Title}}-{{item.Quantitat}} <button  @click="EliminarCompra(index)">Eliminar un producte</button></li>
+                </ul>
+                <p v-if="totalCompra>0">{{(Math.round(totalCompra * 100) / 100).toFixed(2)}}€</p>
+            </div>
+
+        </div>
+        <div id="FinalitzarCompra" v-if="actiu == 3">
+            <ul>
+                <li v-for="(item, index) in comprat">{{item.Title}}-{{item.preu}}€-{{item.Quantitat}}-Total: {{item.preu*item.Quantitat}}€</li>
+            </ul>
+            <button @click="updateboto(1)">Cancelar</button>
+            <button @click="acabarCompra()">Comprar</button>
+        
+        </div>
+        <script src="communicationManager.js" type="module"></script>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="accionsVue.js" type="module"></script>
+</body>
+
+</html>
