@@ -11,18 +11,7 @@ img:hover{
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
-label{
-    display: none;
-    text-align:center;
-}
-.item{
-    display: flex;
-    margin-left: 15%;
-    height: 200px;
-    width: 200px;
-}
-.item:hover > label {
-    display: flex;
+.productabel{
     position: absolute;
     top: 0;
     padding: 10px;
@@ -34,6 +23,14 @@ label{
     justify-content: center;
     align-items: center;
 }
+.item{
+    display: flex;
+    margin-left: 15%;
+    height: 200px;
+    width: 200px;
+}
+
+
 .item{
      position: relative;
      display: block;
@@ -48,6 +45,7 @@ label{
     margin-right: auto;
     width: 100%;
     background-color: lightgray;
+    color: black;
 }
 input[type=text]{
     align-self: center;
@@ -78,3 +76,19 @@ input[type=button]{
 #inferior{
     grid-area: inferior;
 }
+
+.hidden{
+    display: none;
+}
+body{
+    background-color: rgb(46, 45, 45);
+    color: white;
+}
+
+#app{
+    display: grid;
+    grid-template-areas: "superior superior"
+    "menú menú";
+}
+
+

@@ -7,6 +7,9 @@ createApp({
       actiu: 1,
       productes: [],
       totalCompra:0,
+      user:localStorage.getItem("name"),
+      usermail:localStorage.getItem("mail"),
+      dadesPosades:false
     }
   },
   methods: {
@@ -53,15 +56,37 @@ createApp({
       this.comprat=[];
       this.totalCompra=0;
       
+    },
+    guardarUser(){
+      this.user=document.getElementById("name").value;
+      this.usermail=document.getElementById("mail").value;
+      localStorage.setItem("name", this.user);
+      localStorage.setItem("mail", this.usermail)
+      this.dadesPosades=true;
+    },
+    esborrarDades(){
+      localStorage.removeItem("name");
+      localStorage.removeItem("mail");
+      this.user="";
+      this.usermail="";
+      this.dadesPosades=false;
+    },
+    esborrarTotsElsProductes(index){
+      this.totalCompra-=this.comprat[index].preu*this.comprat[index].Quantitat;
+        this.comprat.splice(index, 1);
+      
     }
 
   },
   created() {
     getProductes().then(data => {
       this.productes = data
-      if(localStorage.getItem("name")){
-        document.getElementById("name").innerHTML=localStorage.getItem("name");
-        document.getElementById("mail").innerHTML=localStorage.getItem("mail");
+      if(this.user){
+        this.dadesPosades=true;
+        console.log(localStorage.getItem("name"))
+      } else{
+        this.dadesPosades=false;
+        console.log("NohayDatos")
       }
     }
     )
